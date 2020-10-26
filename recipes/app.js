@@ -7,10 +7,7 @@ require('dotenv').config();
 require('./config/database');
 
 // routers
-const landingR = require('./routes/landing');
-const indexR = require('./routes/index');
-const submitR = require('./routes/submit')
-const detailsR = require('./routes/details.js')
+const recipesR = require('./routes/recipes');
 
 const app = express();
 
@@ -24,10 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', landingR);
-app.use('/index', indexR);
-app.use('/submit', submitR);
-app.use('/:id', detailsR);
+app.use('/', recipesR);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

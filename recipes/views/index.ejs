@@ -6,6 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    all the recipes
+    <table id="list">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Release<br>Year</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% recipes.forEach(function(i) { %>
+            <tr>
+              <td><%= i.name %></td>
+              <td><%= i.description %></td>
+              <td><a href="/<%= i._id %>">DETAILS</a></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
 </body>
 </html>

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/recipes', {
+mongoose.connect(
+  process.env.DB_URL,
+  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true

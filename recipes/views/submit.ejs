@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>New Recipe</title>
 </head>
 <body>
-    submit new recipe
+    <form id="new-form" action="/new" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name">
+        <label>Description:</label>
+        <input type="text" name="description">
+        <label>Ingredients:</label>
+        <input type="text" name="ingredientsNum">
+        <input type="submit" value="Add Recipe">
+      </form>
 </body>
 </html>
