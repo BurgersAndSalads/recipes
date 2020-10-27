@@ -10,6 +10,7 @@ function index(req, res) {
 // ----------- list out all the recipes
 function all(req, res) {
     recipeD.find({}, function(err, recipes) {
+        console.log(recipes)
         res.render('index', {recipes});
     })
 };
@@ -17,6 +18,7 @@ function all(req, res) {
 // ---------- look at the details of a selected recipe
 function view(req, res) {
     recipeD.findById(req.params.id, function(err, recipe) {
+        console.log(recipe)
         // if(err) {
         //     res.send(err);
         // } else {
