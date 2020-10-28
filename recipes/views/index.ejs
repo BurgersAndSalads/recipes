@@ -9,33 +9,29 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <table id="list">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% recipes.forEach(function(i) { %>
-                    <!-- bootstrap cards -->
-        <div class="card" style="width: 18rem;">
-          <img src="https://www.cookingclassy.com/wp-content/uploads/2020/04/bread-recipe-1.jpg" class="card-img-top" alt="recipe image">
-          <div class="card-body">
-            <h5 class="card-title"><%= i.name %></h5>
-            <p class="card-text"><%= i.description %></p>
-            <a href="/recipe/<%= i._id %>" class="btn btn-primary">DETAILS</a>
+    <div class="row">
+      <div class="container col-1">
+        <div id="sidebar" class="d-flex p-2 bd-highlight">side bar with a lot of text, mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</div>
+      </div>
+      <div class="container col-8">
+        <div class="d-flex p-2 bd-highlight">
+          <div class="row row-cols-1 row-cols-md-3">
+            <% recipes.forEach(function(i) { %>
+            <!-- bootstrap cards -->
+              <div class="col mb-4">
+                <div class="card h-100">
+                  <img src="https://www.cookingclassy.com/wp-content/uploads/2020/04/bread-recipe-1.jpg" class="card-img-top" alt="recipe image">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= i.name %></h5>
+                    <p class="card-text"><%= i.description %></p>
+                    <a href="/recipe/<%= i._id %>" class="btn btn-primary">DETAILS</a>
+                  </div>
+                </div>
+              </div>
+                    <% }); %>
           </div>
         </div>
-
-            <tr>
-              <td><%= i.name %></td>
-              <td><%= i.description %></td>
-              <td><a href="/recipe/<%= i._id %>">DETAILS</a></td>
-            </tr>
-            <% }); %>
-          </tbody>
-        </table>
+      </div>
+    </div>
 </body>
 </html>

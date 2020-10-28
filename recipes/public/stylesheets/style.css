@@ -7,12 +7,23 @@ a {
   color: #00B7FF;
 }
 
-form {
-  margin: 200px;
-  padding: 200px;
-}
-
 img {
   max-width: 100%;
   height: auto;
+}
+
+.carousel img {
+  max-height: 400px;
+}
+
+label {
+  margin: 10px;
+}
+
+button {
+  margin: 10px;
+}
+
+#sidebar {
+  border: 1px solid black;
 }

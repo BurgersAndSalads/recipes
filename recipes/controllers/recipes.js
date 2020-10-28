@@ -2,10 +2,7 @@ const recipeD = require('../models/recipes');
 
 // ---------- Landing page rendering
 function index(req, res) {
-    // recipeD.find({}, function(err, recipes) {
-        // console.log('this is line 6')
-        res.render('landing', {title: 'Recipes'/*, recipes*/});
-    // })
+        res.render('landing');
 };
 
 // ----------- list out all the recipes
