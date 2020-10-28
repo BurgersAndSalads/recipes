@@ -18,6 +18,10 @@ router.get('/all', recipesC.all);
 
 //-------------
 // GET specific recipe
-router.get('/:id', recipesC.view);
+router.get('/recipe/:id', recipesC.view);
+
+//--------------------
+// POST a comment
+router.post('/recipe/:id/comment', recipesC.comment);
 
 module.exports = router;

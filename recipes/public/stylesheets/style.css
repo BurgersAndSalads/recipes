@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+form {
+  margin: 200px;
+  padding: 200px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
