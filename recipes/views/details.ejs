@@ -16,26 +16,36 @@
           <th scope="col">Description</th>
           <th scope="col">Ingredients</th>
           <th scope="col">Likes</th>
-          <th scope="col">Comments</th>
         </tr>
       </thead>
       <tbody>
           <tr>
-            <th scope="row">1</th>
             <td><%= recipe.name %></td>
             <td><%= recipe.description %></td>
             <td><%= recipe.ingredientsNum %></td>
             <td><%= recipe.likes %></td>
-            <% if(recipe.comments.length) { %>
-              <% recipe.comments.forEach(i => { %>
-            <td><%= i.content %>
-                <%= i.rating  %>
-            </td>
-              <% })} %>
           </tr>
         </tbody>
-      </table>
+    </table>
+    <div class="container">
       <h2>Comments</h2>
+      <% let number = 0 %>
+        <% let total = 0 %>
+        <% if(recipe.comments.length) { %>
+          <div class="card" style="width: 50%">
+          <% recipe.comments.forEach(i => { %>
+              <% total += i.rating  %>
+                <% number += 1 %>
+                <div class="card-body">
+                  <h5 class="card-title">Comment <%= number %></h5>
+                  <p class="card-text"><%= i.content %></p>
+                  <!-- <a href="#" class="card-link">Another link</a> -->
+                </div>
+          </div>
+              <% })} %>
+    </div>
+      <h6>Average rating <%= total/recipe.comments.length %></h6>
+      <h2>Add Comments</h2>
       <form id="add-comment" method="POST"
         action="/recipe/<%= recipe._id %>/comment">
         <label>Coment:</label>
@@ -48,7 +58,7 @@
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <input type="submit" value="Add Comment">
+        <input class="btn btn-primary" type="submit" value="Add Comment">
       </form>     
   </body>
 </html>
