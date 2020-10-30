@@ -8,16 +8,13 @@ function index(req, res) {
 // ----------- list out all the recipes
 function all(req, res) {
     recipeD.find({}, function(err, recipes) {
-        // console.log(recipes)
         res.render('index', {recipes});
     })
 };
 
 // ---------- look at the details of a selected recipe
 function view(req, res) {
-    console.log("this is line 20")
     recipeD.findById(req.params.id, function(err, recipe) {
-        // console.log(recipe + "123123")
         res.render('details', {title: recipe.name, recipe})
     });
 }
@@ -33,7 +30,6 @@ function create(req, res) {
     recipe.save(function(err) {
         res.redirect('/all')
     })
-    // res.send('create recipe');
 };
 
 //----------- POST a comment
@@ -46,11 +42,29 @@ function comment(req, res) {
     });
 }
 
+//------------ DELETE a comment
+function commentDelete(req, res) {
+    recipeD.findOne({'comments._id': req.params.id}, function(err, recipe) {
+      recipe.comments.id(req.params.id).remove();
+      recipe.save(function(err) {
+        res.redirect(`/recipe/${recipe._id}`);
+      });
+    });
+  }
+//----------- EDIT a recipe
+function recipeEdit(req, res) {
+    recipeD.findById(req.params.id, function(err, recipe) {
+        res.render('submit', {recipe});
+    })
+}
+
 module.exports = {
     view,
     all,
     new: newRecipe,
     create,
     index,
-    comment
+    comment,
+    commentDelete,
+    recipeEdit
 };

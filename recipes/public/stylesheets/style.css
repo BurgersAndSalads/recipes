@@ -20,6 +20,11 @@ button {
   margin: 10px;
 }
 
-#sidebar {
-  border: 1px solid black;
+.nav-item {
+  max-width: 100%;
+}
+
+.btn-details {
+  font-size: 10px;
+  float: right;
 }

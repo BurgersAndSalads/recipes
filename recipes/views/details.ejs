@@ -17,6 +17,16 @@
       <li class="nav-item">
         <a class="nav-link" href="/new">Add Recipe</a>
       </li>
+      <li class="nav-item">
+        <form action="/recipe/<%=recipe._id%>?_method=PUT" method="POST">
+          <button type="submit" class="btn btn-info btn-sm btn-details">EDIT Recipe</button>
+        </form>
+      </li>
+      <li class="nav-item">
+        <form action="/recipe/<%=recipe._id%>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-danger btn-sm btn-details">DELETE Recipe</button>
+        </form>
+      </li>
     </ul>
     <h1><%= recipe.name %></h1>
     <div class="container">
@@ -40,13 +50,16 @@
                   <h5 class="card-title">Comment <%= number %></h5>
                   <p class="card-text"><%= i.content %></p>
                 </div>
+                <form id="<%=i._id%>" action="/recipe/<%=recipe._id%>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger btn-sm btn-details">DELETE</button>
+                </form>
           </div><br><br>
               <% })} %>
     </div>
-      <h6>Average rating <%= total/recipe.comments.length %></h6>
-      <h2>Add Comments</h2>
+      <h4>Average rating <%= total/recipe.comments.length %></h4>
+      <h4>Add Comments</h4>
       <form id="add-comment" method="POST"
-        action="/recipe/<%= recipe._id %>/comment">
+        action="/recipe/<%=recipe.comments._id%>/comment">
         <label>Coment:</label>
         <textarea name="content"></textarea>
         <label>Rating:</label>
