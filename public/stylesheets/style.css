@@ -1,0 +1,30 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+label {
+  margin: 10px;
+}
+
+button {
+  margin: 10px;
+}
+
+.nav-item {
+  max-width: 100%;
+}
+
+.btn-details {
+  font-size: 10px;
+  float: right;
+}
