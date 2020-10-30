@@ -31,7 +31,6 @@ function newRecipe(req, res) {
 function create(req, res) {
     const recipe = new recipeD(req.body);
     recipe.save(function(err) {
-        if (err) return res.redirect('/new');
         res.redirect('/all')
     })
     // res.send('create recipe');

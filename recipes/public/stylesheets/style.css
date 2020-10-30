@@ -12,10 +12,6 @@ img {
   height: auto;
 }
 
-.carousel img {
-  max-height: 400px;
-}
-
 label {
   margin: 10px;
 }

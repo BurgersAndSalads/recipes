@@ -5,7 +5,7 @@ const recipesC = require('../controllers/recipes');
 
 // submission form page
 router.get('/new', recipesC.new);
-router.post('/new', recipesC.create);
+router.post('/all', recipesC.create);
 
 //-----------------------
 

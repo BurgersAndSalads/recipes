@@ -9,14 +9,29 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <form id="new-form" action="/new" method="POST">
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Landing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/all">All Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="/new">Add Recipe</a>
+        </li>
+    </ul>
+    <form id="new-form" action="/all" method="POST">
         <div class="form-group">
             <label for="formGroupExampleInput">Name:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="name of the recipe" name="name">
-            <label for="formGroupExampleInput2">Description:</label>
-            <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="description of the recipe" name="description"></textarea>
-            <label for="formGroupExampleInput3">Ingredients:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="ingredients seperated by commas" name="ingredientsNum">
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="name" name="name">
+            <label for="formGroupExampleInput2">A Short Description:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="short description" name="description">
+            <label for="formGroupExampleInput3">Instructions:</label>
+            <textarea type="text" class="form-control" id="formGroupExampleInput3" placeholder="instructions" name="instruction"></textarea>
+            <label for="formGroupExampleInput4">Ingredients:</label>
+            <textarea type="text" class="form-control" id="formGroupExampleInput4" placeholder="ingredients" name="ingredientsNum"></textarea>
+            <label for="formGroupExampleInput5">Add a picture</label>
+            <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="image url" name="image">
             <button type="submit" class="btn btn-primary">Add Recipe</button>
         </div>
       </form>
