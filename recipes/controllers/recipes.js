@@ -44,17 +44,26 @@ function comment(req, res) {
 
 //------------ DELETE a comment
 function commentDelete(req, res) {
-    recipeD.findOne({'comments._id': req.params.id}, function(err, recipe) {
-      recipe.comments.id(req.params.id).remove();
-      recipe.save(function(err) {
+    recipeD.findById(req.params.id, function(err, recipe) {
+        recipe.comments[0].remove();
+        recipe.save(function(err) {
         res.redirect(`/recipe/${recipe._id}`);
       });
     });
-  }
+}
+
+//----------- DELETE a recipe
+function recipeDelete(req, res) {
+    recipeD.findById(req.params.id, function(err, recipe) {
+        recipe.remove();
+        res.redirect('/all');
+    })
+}
+
 //----------- EDIT a recipe
 function recipeEdit(req, res) {
     recipeD.findById(req.params.id, function(err, recipe) {
-        res.render('submit', {recipe});
+        res.send('<h1>COMING SOON</h1>');
     })
 }
 
@@ -66,5 +75,6 @@ module.exports = {
     index,
     comment,
     commentDelete,
-    recipeEdit
+    recipeEdit,
+    recipeDelete
 };
